@@ -2,6 +2,7 @@ package com.Pos.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +21,11 @@ public class Auth {
     @PostMapping("/register")
     public ResponseEntity<String> registerUser(@RequestBody UserRegisterDTO userRegisterDTO) {
         userService.registerUser(userRegisterDTO);
-        // System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>"+userRegisterDTO.getUsername());
+        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>"+userRegisterDTO.getUsername());
         return ResponseEntity.ok("User registered successfully");
+    }
+    @GetMapping("/hello")
+    public String sayHello() {
+        return "Hello, World!";
     }
 }
